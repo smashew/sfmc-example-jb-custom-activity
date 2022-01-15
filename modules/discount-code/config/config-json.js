@@ -9,7 +9,6 @@ module.exports = function configJSON(req) {
     // For Custom Activity this must say, "REST"
     type: 'CODE',
     code: "%%[/*Blank Code Here*/]%%",
-    parseOutputAsJson: false,
     lang: {
       'en-US': {
         name: 'Code Activity - TEST',
@@ -17,6 +16,8 @@ module.exports = function configJSON(req) {
       }
     },
     arguments: {
+      code: "",
+      parseOutputAsJson: false,
       execute: {
         // See: https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/how-data-binding-works.htm
         inArguments: [
@@ -24,11 +25,7 @@ module.exports = function configJSON(req) {
             discount: 10
           }
         ],
-        outArguments: [
-          {
-            foo: ""
-          }
-        ],
+        outArguments: [],
         // Fill in the host with the host that this is running on.
         // It must run under HTTPS
         url: `https://${req.headers.host}/modules/discount-code/execute`,
@@ -65,15 +62,17 @@ module.exports = function configJSON(req) {
         execute: {
           inArguments: [],
           outArguments: [{
-            discountCode: {
-              dataType: 'Text',
-              direction: 'out',
-              access: 'visible'
-            },
             discount: {
               dataType: 'Number',
               direction: 'out',
               access: 'visible'
+            },
+            codeResult: {
+              discountCode: {
+                dataType: 'Text',
+                direction: 'out',
+                access: 'visible'
+              }
             }
           }]
         }
