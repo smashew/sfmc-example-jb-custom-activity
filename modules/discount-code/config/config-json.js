@@ -7,7 +7,9 @@ module.exports = function configJSON(req) {
       category: 'customer'
     },
     // For Custom Activity this must say, "REST"
-    type: 'REST',
+    type: 'CODE',
+    code: "%%[/*Blank Code Here*/]%%",
+    parseOutputAsJson: false,
     lang: {
       'en-US': {
         name: 'Discount Code',
