@@ -67,13 +67,10 @@ module.exports = function configJSON(req) {
               direction: 'out',
               access: 'visible'
             },
-            
             codeResult: {
-              discountCode: {
-                dataType: 'Text',
-                direction: 'out',
-                access: 'visible'
-              }
+              dataType: 'Text',
+              direction: 'out',
+              access: 'visible'
             }
           }]
         }
