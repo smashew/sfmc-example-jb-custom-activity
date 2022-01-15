@@ -12,7 +12,7 @@ module.exports = function configJSON(req) {
     parseOutputAsJson: false,
     lang: {
       'en-US': {
-        name: 'Discount Code',
+        name: 'Code Activity - TEST',
         description: 'Issue a discount code to contact them to entice them to buy something.'
       }
     },
@@ -24,7 +24,11 @@ module.exports = function configJSON(req) {
             discount: 10
           }
         ],
-        outArguments: [],
+        outArguments: [
+          {
+            foo: ""
+          }
+        ],
         // Fill in the host with the host that this is running on.
         // It must run under HTTPS
         url: `https://${req.headers.host}/modules/discount-code/execute`,
